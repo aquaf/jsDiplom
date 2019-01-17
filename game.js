@@ -167,15 +167,15 @@ class LevelParser {
   createActors(arr) {
     let actors = [];
     arr.forEach((arrY, y) => {
-        arrY.split('').forEach((arrX, x) => {
-            let createActor = this.actorFromSymbol(arrX);
-            if (typeof createActor === 'function') {
-                let actorInstance = new createActor(new Vector(x, y));
-                if (actorInstance instanceof Actor) {
-                    actors.push(actorInstance);
-                }
+      arrY.split('').forEach((arrX, x) => {
+        let createActor = this.actorFromSymbol(arrX);
+        if (typeof createActor === 'function') {
+          let actorInstance = new createActor(new Vector(x, y));
+            if (actorInstance instanceof Actor) {
+              actors.push(actorInstance);
             }
-        })
+        }
+      })
     })
     return actors;
   }
